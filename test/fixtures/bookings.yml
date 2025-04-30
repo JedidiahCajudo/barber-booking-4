@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  barbershop: one
+  service: one
+  date: 2025-04-30 16:45:49
+  status: MyString
+
+two:
+  user: two
+  barbershop: two
+  service: two
+  date: 2025-04-30 16:45:49
+  status: MyString
