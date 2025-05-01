@@ -30,6 +30,11 @@
     <%= f.hidden_field :role, id: "user_role" %>
   </div>
 
+  <%= f.object.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
