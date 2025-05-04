@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
       clients_dashboard_path # or whatever path you want for clients
     end
   end
+
+  # Allow Devise to accept the role parameter during sign-up
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
+  end
 end
