@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  validates :role, presence: true, inclusion: { in: %w[barber client] }
 
   # Example: Check if user is a barber
   def barber?
