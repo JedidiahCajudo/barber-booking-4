@@ -1,0 +1,11 @@
+<!-- app/views/clients/dashboard.html.erb -->
+<h1>Welcome to Your Client Dashboard</h1>
+
+<h2>Available Barbershops</h2>
+<% @barbershops.each do |barbershop| %>
+  <div>
+    <h3><%= link_to barbershop.name, barbershop_path(barbershop) %></h3>
+    <p><%= barbershop.address %></p>
+    <p><%= barbershop.city %></p>
+  </div>
+<% end %>

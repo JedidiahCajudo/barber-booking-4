@@ -69,5 +69,5 @@ end
 
 # added stuff
 gem 'ostruct'
-
 gem "devise", "~> 4.9"
+gem 'faker'

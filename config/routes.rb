@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  devise_for :barbers
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -8,10 +8,12 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
-  # Add these routes for dashboards
+  # Dashboard routes for barbers and clients
   get 'barbers/dashboard', to: 'barbers#dashboard', as: 'barbers_dashboard'
   get 'clients/dashboard', to: 'clients#dashboard', as: 'clients_dashboard'
 
-  # Other routes...
-  root to: 'home#index'  # or whatever you want as the root
+  # Barbershop routes (make sure these are correct)
+  resources :barbershops, only: [:index, :show]
+
+  root to: 'home#index'
 end
