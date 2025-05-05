@@ -1,11 +1,14 @@
-<!-- app/views/barbershops/index.html.erb -->
 <h1>Browse Barbershops</h1>
 
-<% @barbershops.each do |barbershop| %>
-  <div>
-    <h2><%= link_to barbershop.name, barbershop_path(barbershop) %></h2>
-    <p><%= barbershop.address %></p>
-    <p><%= barbershop.city %></p>
-    <p><%= link_to "View Details", barbershop_path(barbershop) %></p>
-  </div>
+<% if @barbershops.empty? %>
+  <p>No barbershops available right now.</p>
+<% else %>
+  <% @barbershops.each do |barbershop| %>
+    <div>
+      <h2><%= link_to barbershop.name, barbershop_path(barbershop) %></h2>
+      <p><%= barbershop.address %></p>
+      <p><%= barbershop.city %></p>
+      <p><%= link_to "View Details", barbershop_path(barbershop) %></p>
+    </div>
+  <% end %>
 <% end %>
