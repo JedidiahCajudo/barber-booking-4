@@ -17,9 +17,9 @@ Barber.destroy_all
     Barbershop.create!(
       name: "#{Faker::Hipster.word.capitalize} Cuts",
       address: Faker::Address.street_address,
-      city: "New York",
+      city: "Tokyo",
       instagram: "https://instagram.com/#{Faker::Internet.username}",
-      barber: barber
+      user: barber
     )
   end
 end
