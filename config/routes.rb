@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
-  get 'barbershops/index'
-  get 'barbershops/show'
-  # Devise routes for Barbers
-  devise_for :barbers, controllers: {
-    sessions: 'barbers/sessions', # Custom controller for barber login
-    registrations: 'barbers/registrations',
-    passwords: 'barbers/passwords',
-    confirmations: 'barbers/confirmations',
-    unlocks: 'barbers/unlocks'
-  }
-
-  # Devise routes for Users (clients)
+  # Devise routes for Barbers and Users (clients)
+  devise_for :barbers
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
@@ -27,6 +17,5 @@ Rails.application.routes.draw do
   resources :barbershops, only: [:index, :show]
 
   # Home route
-  get 'home/index'
   root to: 'home#index'
 end
