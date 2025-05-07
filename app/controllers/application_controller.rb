@@ -9,6 +9,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(Barber)
+      barbers_dashboard_path
+    else
+      barbershops_path
+    end
+  end
+
+
   # Allow Devise to accept the role parameter during sign-up
   before_action :configure_permitted_parameters, if: :devise_controller?
 
