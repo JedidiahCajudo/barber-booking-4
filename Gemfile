@@ -71,3 +71,4 @@ end
 gem 'ostruct'
 gem "devise", "~> 4.9"
 gem 'faker'
+gem 'sassc-rails'

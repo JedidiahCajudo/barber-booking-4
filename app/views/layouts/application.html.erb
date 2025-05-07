@@ -4,6 +4,9 @@
     <title>BarberBooking</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- application.html.erb -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
   <body>
     <% if user_signed_in? %>

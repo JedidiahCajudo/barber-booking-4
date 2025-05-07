@@ -1,0 +1,10 @@
+// _responsive.scss
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .header {
+    padding: 10px;
+  }
+}
