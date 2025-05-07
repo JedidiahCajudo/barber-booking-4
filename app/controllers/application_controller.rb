@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(Barber)
       barbers_dashboard_path # or whatever path you want for barbers
     else
-      clients_dashboard_path # or whatever path you want for clients
+      barbershops_path # or whatever path you want for clients
     end
   end
 

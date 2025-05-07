@@ -3,6 +3,7 @@ class BarbershopsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show]  # Ensure the user is logged in
 
   def index
+    logger.debug "Current user: #{current_user.inspect}"  # Check who the current user is
     @barbershops = Barbershop.all
   end
 
