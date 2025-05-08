@@ -1,13 +1,14 @@
 @import "variables";
 
 .navbar {
-  position: relative;
+  position: fixed;
   top: 0;
   width: 100%;
   background-color: transparent !important;
   padding: 1rem 2rem;
   box-shadow: none;
-  z-index: 200;
+  z-index: 10;
+  border: none;
 
   .navbar-container {
     display: flex;
