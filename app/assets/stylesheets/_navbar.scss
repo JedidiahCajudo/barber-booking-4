@@ -17,11 +17,27 @@
     font-family: $font-family;
     font-size: 1.5rem;
     text-decoration: none;
+    color: #333135; /* Set color to match your desired theme */
   }
 
   .navbar-links {
     a, .sign-out-btn {
       @extend .button-secondary !optional; /* Apply the unified button style */
+      color: #333135; /* Set color to match the rest of the navbar */
+      text-decoration: none; /* Remove the underline */
+
+      &:visited {
+        color: #333135; /* Ensure visited links stay the same color */
+      }
+
+      &:focus, &:active {
+        outline: none; /* Remove focus outline */
+        color: #333135; /* Ensure color stays the same */
+      }
+
+      &:hover {
+        color: darken(#333135, 10%); /* Slightly darken on hover */
+      }
     }
   }
 }
