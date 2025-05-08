@@ -1,6 +1,5 @@
 @import "variables";
 
-/* _home.scss */
 .hero {
   display: flex;
   justify-content: center;
@@ -31,26 +30,38 @@
       gap: 1rem;
       justify-content: center;
 
+
       input[type="text"],
       input[type="date"],
       input[type="time"] {
         flex: 1 1 150px;
         min-width: 120px;
-        padding: 0.75rem 1rem;
-        border: 2px solid #ccc; /* Light gray border */
-        border-radius: 50px; /* Rounded input fields */
-        background-color: #fff; /* White background */
-        color: #333; /* Dark text */
+        padding: $base-padding;
+        border: 2px solid $gray-border;
+        border-radius: $border-radius;
+        background-color: $secondary-bg;  // Solid background color
+        color: $form-text-color;  // New text color for form fields
         font-family: $font-family;
-
-        &:focus {
-          outline: none;
-          border-color: #333; /* Dark border on focus */
-        }
       }
 
       .search-button {
-        @extend .button !optional; /* Apply unified button style */
+        @extend .button !optional; // Inherit button styles
+        padding: 0.75rem 2rem; // Adjust size to make it more oval
+        background-color: $primary-bg;
+        color: $light-text;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          background-color: darken($primary-bg, 10%);
+        }
+
+        &:active {
+          background-color: darken($primary-bg, 15%);
+        }
       }
     }
   }

@@ -1,63 +1,56 @@
-// _buttons.scss
-
-// Base button style
 @import "variables";
 
-// Base button style – matches input field look
+// Base button style – Matches input field look
 .button {
-  padding: 0.75rem 1rem;
+  padding: $base-padding;
   font-size: 1rem;
   font-family: $font-family;
   font-weight: regular;
-  border-radius: 50px;
-  background-color: #333135;
-  color: #fff;
-  border: none;
+  border-radius: $border-radius;
+  background-color: $primary-bg;
+  color: $light-text;
   cursor: pointer;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #2b292d; // slightly darker
+    background-color: darken($primary-bg, 10%);
   }
 
   &:active {
-    background-color: #242225; // pressed in, but not goth
+    background-color: darken($primary-bg, 15%);
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2); // subtle focus ring
   }
 }
 
-
-// Secondary button (white with black text) – if you still need it, otherwise you can remove this
+// Secondary button (white with black text) – if needed
 .button-secondary {
-  padding: 0.75rem 1rem;
+  padding: $base-padding;
   font-size: 1rem;
   font-family: $font-family;
   font-weight: regular;
-  text-decoration: none;
-  border-radius: 50px;
-  background-color: #f4f4f4;
-  border: 2px solid #ccc;
-  color: #333135;
+  border-radius: $border-radius;
+  background-color: $secondary-bg;
+  border: 2px solid $gray-border;
+  color: $dark-text;
   cursor: pointer;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  color: $form-text-color;
+
 
   &:hover {
-    background-color: #eaeaea; // just a bit darker
+    background-color: darken($secondary-bg, 5%);  // Lighter darkening to avoid it being too dark
   }
 
   &:active {
-    background-color: #dedede; // slight "pressed in" vibe
-    transform: translateY(1px); // gives that clicky feel
+    background-color: darken($secondary-bg, 10%);  // Slightly darker than hover, but not too extreme
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(51, 49, 53, 0.2); // soft focus ring
   }
 }

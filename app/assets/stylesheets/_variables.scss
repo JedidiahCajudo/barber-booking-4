@@ -1,7 +1,15 @@
-// Update your primary and secondary colors
-$primary-color: #2596be; // Primary button color (black background)
-$secondary-color: #eab3a2; // Secondary button color (white background with black text)
+// _variables.scss
 
-// Other variables remain the same
-$font-family: 'Helvetica', sans-serif;
-$font-size-base: 16px;
+$primary-color: #333135;  // Define your primary color
+$secondary-color: #f4f4f4;
+$font-size-base: 16px; // Define a base font size for the whole app
+$font-family: 'Arial', sans-serif;
+$primary-bg: #333135;
+$secondary-bg: #f4f4f4;
+$dark-text: #333135;
+$light-text: #fff;
+$gray-border: #ccc;
+$base-padding: 0.75rem 1rem;
+$border-radius: 50px;
+// _variables.scss
+$form-text-color: #666; // A softer, neutral color

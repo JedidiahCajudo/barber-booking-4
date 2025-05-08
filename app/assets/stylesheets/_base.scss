@@ -1,16 +1,36 @@
-// _base.scss
+@import 'variables'; // Ensure you're importing variables at the top
 
-@import 'variables';
-
-* {
+// Global reset for margin, padding, and box-sizing
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+// Body styling
 body {
-  font-family: $font-family;
-  font-size: $font-size-base;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: $font-family;           // Global font family
+  font-size: $font-size-base;          // Base font size from variables
+  background-color: $secondary-bg;    // Background color from variable
+  color: $dark-text;                   // Default text color from variable
+}
+
+// Link styling
+a {
+  text-decoration: none;
+  color: inherit;  // Inherit color from parent elements
+}
+
+// Headings styling
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+// Paragraph styling
+p {
+  line-height: 1.6;         // Comfortable line height for readability
+  margin-bottom: 1rem;      // Space below paragraphs
 }
