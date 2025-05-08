@@ -1,11 +1,11 @@
 @import "variables";
-
+/* _home.scss */
 .hero {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
-  min-height: 100vh; // or even 100vh to test
+  min-height: 100vh;
   background-image: image-url('background-2.jpeg');
   background-size: cover;
   background-position: center;
@@ -43,15 +43,11 @@
         font-family: $font-family;
       }
 
+      /* Search button styling (primary button) */
       .search-button {
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 9999px;
-        background-color: #fff;
-        color: $secondary-color;
-        font-family: $font-family;
-        font-weight: bold;
-        cursor: pointer;
+        @extend .button-search; /* Apply primary button style */
+        background-color: $primary-color !important; /* Force primary color */
+        color: #fff !important; /* Force text color to white */
       }
     }
   }

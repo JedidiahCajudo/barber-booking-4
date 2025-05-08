@@ -1,14 +1,12 @@
-@import "variables";
-
+/* _navbar.scss */
 .navbar {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   background-color: transparent !important;
   padding: 1rem 2rem;
-  box-shadow: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 10;
-  border: none;
 
   .navbar-container {
     display: flex;
@@ -25,11 +23,9 @@
 
   .navbar-links {
     a, .sign-out-btn {
-      font-family: $font-family;
-      color: #fff;
-      text-decoration: none;
-      margin-left: 1rem;
-      &:hover { text-decoration: underline; }
+      @extend .button-secondary; /* Apply secondary button style */
+      color: #000 !important; /* Override text color to black */
+      background-color: #fff !important; /* Ensure white background */
     }
   }
 }

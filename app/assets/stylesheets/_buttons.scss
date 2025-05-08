@@ -1,0 +1,77 @@
+// Base button style
+.button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: $font-family;
+  font-weight: bold;
+  border-radius: 9999px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+
+  // Default primary button style (black with white text)
+  background-color: $primary-color;
+  color: #fff;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: darken($primary-color, 15%);
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+  }
+}
+
+// Secondary button (white with black text)
+.button-secondary {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+
+  &:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: #ddd;
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+  }
+}
+
+// Search button (black with white text)
+.button-search {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: darken(#000, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: darken(#000, 15%);
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+  }
+}
+
+@import "variables";
