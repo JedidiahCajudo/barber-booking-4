@@ -1,77 +1,62 @@
+// _buttons.scss
+
 // Base button style
+@import "variables";
+
+// Base button style – matches input field look
 .button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
   font-family: $font-family;
-  font-weight: bold;
-  border-radius: 9999px;
+  font-weight: regular;
+  border-radius: 50px; // pill shape like inputs
+  background-color: #333135; // nice dark background
+  color: #fff;
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-
-  // Default primary button style (black with white text)
-  background-color: $primary-color;
-  color: #fff;
 
   &:hover {
-    background-color: darken($primary-color, 10%);
-    transform: translateY(-2px);
+    background-color: darken(#333135, 10%);
   }
 
   &:active {
-    background-color: darken($primary-color, 15%);
-    transform: translateY(0);
+    background-color: darken(#333135, 15%);
   }
 
   &:focus {
     outline: none;
-    border-color: $secondary-color;
   }
 }
 
-// Secondary button (white with black text)
+
+
+// Secondary button (white with black text) – if you still need it, otherwise you can remove this
 .button-secondary {
-  background-color: #fff;
-  color: #000;
-  border: 2px solid #000;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: $font-family;
+  font-weight: regular;
+  text-decoration: none;
+  border-radius: 50px;
+  background-color: #f4f4f4;
+  border: 2px solid #ccc;
+  color: #333135;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
 
   &:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
+    background-color: #eaeaea; // just a bit darker
   }
 
   &:active {
-    background-color: #ddd;
-    transform: translateY(0);
+    background-color: #dedede; // slight "pressed in" vibe
+    transform: translateY(1px); // gives that clicky feel
   }
 
   &:focus {
     outline: none;
-    border-color: $secondary-color;
+    box-shadow: 0 0 0 2px rgba(51, 49, 53, 0.2); // soft focus ring
   }
 }
-
-// Search button (black with white text)
-.button-search {
-  background-color: #000;
-  color: #fff;
-  border: 2px solid transparent;
-
-  &:hover {
-    background-color: darken(#000, 10%);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    background-color: darken(#000, 15%);
-    transform: translateY(0);
-  }
-
-  &:focus {
-    outline: none;
-    border-color: $secondary-color;
-  }
-}
-
-@import "variables";

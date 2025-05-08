@@ -1,4 +1,5 @@
 @import "variables";
+
 /* _home.scss */
 .hero {
   display: flex;
@@ -36,39 +37,21 @@
         flex: 1 1 150px;
         min-width: 120px;
         padding: 0.75rem 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        border-radius: 9999px;
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #fff;
+        border: 2px solid #ccc; /* Light gray border */
+        border-radius: 50px; /* Rounded input fields */
+        background-color: #fff; /* White background */
+        color: #333; /* Dark text */
         font-family: $font-family;
-      }
 
-      /* Search button styling (primary button) */
-      .search-button {
-        @extend .button-search !optional; /* Apply primary button style */
-        border-radius: 50px; /* Ensures it's rounded */
-        padding: 0.75rem 2rem; /* Adjust size to make it more oval */
-
-        /* Fix gray background and black outline */
-        background-color: #333135; /* Set primary color */
-        color: #fff; /* Ensure text is white */
-        border: 2px solid $primary-color; /* Make border match primary color */
-
-        /* Remove any outline or unwanted effects */
         &:focus {
           outline: none;
-          border-color: $primary-color; /* Make border focus same as primary */
-        }
-
-        &:hover {
-          background-color: darken($primary-color, 10%); /* Darken on hover */
-        }
-
-        &:active {
-          background-color: darken($primary-color, 15%); /* Darken on active */
+          border-color: #333; /* Dark border on focus */
         }
       }
 
+      .search-button {
+        @extend .button !optional; /* Apply unified button style */
+      }
     }
   }
 }
