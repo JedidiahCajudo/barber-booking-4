@@ -1,0 +1,68 @@
+@import "variables";
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background-image: image-url('background-2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+
+    .hero-title {
+      font-family: $font-family;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .hero-search {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+
+
+      input[type="text"],
+      input[type="date"],
+      input[type="time"] {
+        flex: 1 1 150px;
+        min-width: 120px;
+        padding: $base-padding;
+        border: 2px solid $gray-border;
+        border-radius: $border-radius;
+        background-color: $secondary-bg;  // Solid background color
+        color: $form-text-color;  // New text color for form fields
+        font-family: $font-family;
+      }
+
+      .search-button {
+        @extend .button !optional; // Inherit button styles
+        padding: 0.75rem 2rem; // Adjust size to make it more oval
+        background-color: $primary-bg;
+        color: $light-text;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          background-color: darken($primary-bg, 10%);
+        }
+
+        &:active {
+          background-color: darken($primary-bg, 15%);
+        }
+      }
+    }
+  }
+}
