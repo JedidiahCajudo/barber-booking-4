@@ -17,13 +17,12 @@
   .navbar-brand a {
     font-family: $font-family;
     font-size: 1.5rem;
-    color: #fff;
     text-decoration: none;
   }
 
   .navbar-links {
     a, .sign-out-btn {
-      @extend .button-secondary; /* Apply secondary button style */
+      @extend .button-secondary !optional; /* Apply secondary button style */
       color: #000 !important; /* Override text color to black */
       background-color: #fff !important; /* Ensure white background */
     }

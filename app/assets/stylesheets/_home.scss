@@ -45,10 +45,30 @@
 
       /* Search button styling (primary button) */
       .search-button {
-        @extend .button-search; /* Apply primary button style */
-        background-color: $primary-color !important; /* Force primary color */
-        color: #fff !important; /* Force text color to white */
+        @extend .button-search !optional; /* Apply primary button style */
+        border-radius: 50px; /* Ensures it's rounded */
+        padding: 0.75rem 2rem; /* Adjust size to make it more oval */
+
+        /* Fix gray background and black outline */
+        background-color: #333135; /* Set primary color */
+        color: #fff; /* Ensure text is white */
+        border: 2px solid $primary-color; /* Make border match primary color */
+
+        /* Remove any outline or unwanted effects */
+        &:focus {
+          outline: none;
+          border-color: $primary-color; /* Make border focus same as primary */
+        }
+
+        &:hover {
+          background-color: darken($primary-color, 10%); /* Darken on hover */
+        }
+
+        &:active {
+          background-color: darken($primary-color, 15%); /* Darken on active */
+        }
       }
+
     }
   }
 }
