@@ -19,6 +19,7 @@
       <h3><%= link_to barbershop.name, barbershop_path(barbershop) %></h3>
       <p><%= barbershop.address %></p>
       <p><%= barbershop.city %></p>
+      <%= image_tag barbershop.photo.url if barbershop.photo? %>
       <%= link_to "View Details", barbershop_path(barbershop), class: "details-link" %>
     </div>
   <% end %>
