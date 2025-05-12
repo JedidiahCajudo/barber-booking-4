@@ -108,3 +108,24 @@ h2 {
     }
   }
 }
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid $gray-border;
+  }
+
+  span {
+    margin: 0 1rem;
+    color: $form-text-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+}
