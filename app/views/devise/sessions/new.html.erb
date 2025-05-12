@@ -1,5 +1,14 @@
 <div class="form-container">
   <h2>Log in</h2>
+    <div class="social-login">
+    <button class="social-button facebook">
+      Continue with Facebook
+    </button>
+    <button class="social-button google">
+      Continue with Google
+    </button>
+    </div>
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
@@ -17,15 +26,6 @@
         <%= f.label :remember_me %>
       </div>
     <% end %>
-
-    <div class="social-login">
-      <button class="social-button facebook">
-        Continue with Facebook
-      </button>
-      <button class="social-button google">
-        Continue with Google
-      </button>
-    </div>
 
     <div class="actions">
       <%= f.submit "Continue" %>
