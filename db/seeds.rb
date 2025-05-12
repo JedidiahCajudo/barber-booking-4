@@ -20,7 +20,8 @@ User.destroy_all
       address: Faker::Address.street_address,
       city: "New York",
       instagram: "https://instagram.com/#{Faker::Internet.username}",
-      user: barber # Linking barbershop to this barber user
+      user: barber, # Linking barbershop to this barber user
+      photo: Faker::Avatar.image  # Adding random photo URL using Faker
     )
   end
 end
