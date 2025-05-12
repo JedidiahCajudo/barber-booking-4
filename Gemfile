@@ -75,3 +75,6 @@ gem 'sassc-rails'
 # Gemfile
 gem 'carrierwave', '~> 2.0'
 gem 'cloudinary', '~> 1.15'
+# Gemfile
+gem 'httparty'
+gem 'dotenv-rails'

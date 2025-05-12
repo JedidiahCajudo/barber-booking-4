@@ -1,4 +1,8 @@
 require 'faker'
+require 'httparty'
+
+# Unsplash API
+UNSPLASH_API_URL = "https://api.unsplash.com/photos/random?query=barbershop&client_id=YOUR_UNSPLASH_ACCESS_KEY"
 
 # Clear old data
 Barbershop.destroy_all
@@ -10,8 +14,12 @@ User.destroy_all
     name: Faker::Name.name,
     email: Faker::Internet.unique.email,
     password: 'password',
-    role: 'barber' # Ensure this user is a barber
+    role: 'barber'
   )
+
+  # Fetch a random barbershop image from Unsplash
+  response = HTTParty.get(UNSPLASH_API_URL)
+  image_url = response.parsed_response.first['urls']['regular']
 
   # Each barber owns 1-2 barbershops
   rand(1..2).times do
@@ -20,8 +28,8 @@ User.destroy_all
       address: Faker::Address.street_address,
       city: "New York",
       instagram: "https://instagram.com/#{Faker::Internet.username}",
-      user: barber, # Linking barbershop to this barber user
-      photo: Faker::Avatar.image  # Adding random photo URL using Faker
+      user: barber,
+      photo: image_url  # Adding a real barbershop image from Unsplash
     )
   end
 end
@@ -32,6 +40,6 @@ end
     name: Faker::Name.name,
     email: Faker::Internet.unique.email,
     password: 'password',
-    role: 'client' # Ensure this user is a client
+    role: 'client'
   )
 end
