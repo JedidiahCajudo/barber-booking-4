@@ -73,8 +73,10 @@ h2 {
   }
 }
 
+
 .social-login {
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;  // Stack the buttons on top of each other
   gap: 1rem;
   margin-top: 2rem;
   justify-content: center; // Center the buttons horizontally
@@ -86,38 +88,38 @@ h2 {
     padding: 0.75rem 1.5rem; // Adjust padding to give space for the text
     font-size: 1rem; // Adjust font size of text
     border-radius: $border-radius;
-    border: 2px solid transparent; // No border, just the icon
+    border: 2px solid $gray-border; // Add border to keep buttons consistent
     cursor: pointer;
     background-color: transparent; // Transparent background
     width: auto; // Allow buttons to grow based on content
     height: 50px; // Keep the height fixed
+    color: $dark-text; // Set the text color to the regular text color
     transition: background-color 0.3s ease;
 
     i {
       margin-right: 0.75rem; // Space between the icon and the text
       font-size: 1.5rem; // Size of the icon
       color: inherit; // Ensure the icon color inherits from button
-    }
 
-    // Facebook Icon Style
-    &.facebook {
-      color: #3b5998; // Facebook blue
+      // Facebook Icon Color
+      &.fa-facebook-f {
+        color: #3b5998; // Facebook blue
+      }
 
-      &:hover {
-        background-color: rgba(59, 89, 152, 0.1); // Slight blue background on hover
+      // Google Icon Color
+      &.fa-google {
+        color: #db4437; // Google red
       }
     }
 
-    // Google Icon Style
-    &.google {
-      color: #db4437; // Google red
-
-      &:hover {
-        background-color: rgba(219, 68, 55, 0.1); // Slight red background on hover
-      }
+    // On hover, add a light background to give visual feedback
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05); // Light background on hover
     }
   }
 }
+
+
 
 
 .divider {
