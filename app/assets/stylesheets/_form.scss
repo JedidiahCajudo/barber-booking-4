@@ -1,0 +1,72 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background-color: $secondary-bg;  // Lighter background for easy readability
+}
+
+.form-content {
+  max-width: 600px;
+  width: 100%;
+  background-color: $light-text;
+  border-radius: $border-radius;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // Soft shadow for depth
+}
+
+h2 {
+  text-align: center;
+  font-family: $font-family;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+// Targeting the 'field' class (email/password inputs)
+.field {
+  margin-bottom: 1.5rem; // Space between inputs
+
+  label {
+    font-size: 1rem;
+    color: $dark-text;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: $base-padding;
+    border: 2px solid $gray-border;
+    border-radius: $border-radius;
+    background-color: $secondary-bg;
+    color: $dark-text;
+    font-family: $font-family;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+}
+
+// Targeting the submit button (Log in button)
+.actions {
+  text-align: center;
+
+  input[type="submit"] {
+    padding: 1rem;
+    background-color: $primary-bg;
+    color: $light-text;
+    border-radius: $border-radius;
+    border: none;
+    cursor: pointer;
+    width: 100%; // Full-width button
+
+    &:hover {
+      background-color: darken($primary-bg, 10%);
+    }
+  }
+}
