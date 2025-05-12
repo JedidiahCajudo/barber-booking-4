@@ -134,3 +134,8 @@ h2 {
   color: $gray-text; // Or something like #999
   opacity: 1; // Makes sure it shows fully
 }
+
+.field input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: $primary-bg;
+}
