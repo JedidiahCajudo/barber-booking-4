@@ -72,3 +72,39 @@ h2 {
     }
   }
 }
+
+// _form.scss
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  .social-button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: $border-radius;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+
+    &.facebook {
+      background-color: #3b5998; // Facebook blue
+      color: $light-text;
+      &:hover {
+        background-color: darken(#3b5998, 10%);
+      }
+    }
+
+    &.google {
+      background-color: #db4437; // Google red
+      color: $light-text;
+      &:hover {
+        background-color: darken(#db4437, 10%);
+      }
+    }
+  }
+}
