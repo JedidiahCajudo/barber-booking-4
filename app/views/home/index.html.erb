@@ -4,9 +4,23 @@
     <form class="hero-search">
       <input type="text" name="service"   placeholder="Service"   />
       <input type="text" name="location"  placeholder="Location"  />
-      <input type="date" name="date"                   />
-      <input type="time" name="time"                   />
+      <input type="date" name="date"      />
+      <input type="time" name="time"      />
       <button type="submit" class="search-button">Search</button>
     </form>
   </div>
+</section>
+
+<section class="barbershops-list">
+  <h2>Browse Our Barbershops</h2>
+
+  <% @barbershops.each do |barbershop| %>
+    <div class="shop-card">
+      <h3><%= link_to barbershop.name, barbershop_path(barbershop) %></h3>
+      <p><%= barbershop.address %></p>
+      <p><%= barbershop.city %></p>
+      <%= image_tag barbershop.photo.url if barbershop.photo? %>
+      <%= link_to "View Details", barbershop_path(barbershop), class: "details-link" %>
+    </div>
+  <% end %>
 </section>
