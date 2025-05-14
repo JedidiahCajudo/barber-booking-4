@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookings/new'
+  get 'bookings/create'
   devise_for :barbers
   devise_for :users, controllers: {
     sessions: 'users/sessions',

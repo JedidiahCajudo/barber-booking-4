@@ -1,5 +1,6 @@
-<!-- app/views/barbershops/show.html.erb -->
 <h1><%= @barbershop.name %></h1>
 <p><%= @barbershop.address %></p>
 <p><%= @barbershop.city %></p>
 <p><%= @barbershop.instagram %></p>
+
+<%= link_to 'Book an Appointment', new_booking_path(barbershop_id: @barbershop.id) %>

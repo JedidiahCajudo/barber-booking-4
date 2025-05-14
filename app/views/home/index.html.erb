@@ -15,12 +15,12 @@
   <h2>Browse</h2>
 
   <% @barbershops.each do |barbershop| %>
-    <div class="shop-card">
-      <h3><%= link_to barbershop.name, barbershop_path(barbershop) %></h3>
-      <p><%= barbershop.address %></p>
-      <p><%= barbershop.city %></p>
-      <%= image_tag barbershop.photo if barbershop.photo.present? %>
-      <%= link_to "View Details", barbershop_path(barbershop), class: "details-link" %>
+    <div>
+      <h2><%= barbershop.name %></h2>
+        <p><%= barbershop.address %></p>
+        <p><%= barbershop.city %></p>
+        <p><%= barbershop.instagram %></p>
+      <%= link_to 'Select this Barbershop', barbershop_path(barbershop) %>
     </div>
   <% end %>
 </section>
