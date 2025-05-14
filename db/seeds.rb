@@ -19,6 +19,9 @@ barber = User.create!(
 response = HTTParty.get(UNSPLASH_API_URL)
 image_url = response.parsed_response['urls']['regular']
 
+# Create a file from the image URL manually
+image_file = URI.open(image_url)
+
 # Create barbershops for the default barber user
 3.times do
   Barbershop.create!(
@@ -27,6 +30,6 @@ image_url = response.parsed_response['urls']['regular']
     city: "New York",
     instagram: "https://instagram.com/#{Faker::Internet.username}",
     user: barber,  # Associate with the default barber user
-    remote_photo_url: image_url  # Adding a real barbershop image from Unsplash
+    photo: image_file  # Manually assigning the file
   )
 end
