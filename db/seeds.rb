@@ -2,7 +2,7 @@ require 'faker'
 require 'httparty'
 
 # Unsplash API
-UNSPLASH_API_URL = "https://api.unsplash.com/photos/random?query=barbershop&client_id=YOUR_UNSPLASH_ACCESS_KEY"
+UNSPLASH_API_URL = "https://api.unsplash.com/photos/random?query=barbershop&client_id=#{ENV['UNSPLASH_ACCESS_KEY']}"
 
 # Clear old data
 Barbershop.destroy_all
