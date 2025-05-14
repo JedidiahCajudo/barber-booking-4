@@ -2,7 +2,7 @@ require 'faker'
 require 'httparty'
 
 # Unsplash API
-UNSPLASH_API_URL = "https://api.unsplash.com/photos/random?query=barbershop&client_id=YOUR_UNSPLASH_ACCESS_KEY"
+UNSPLASH_API_URL = "https://api.unsplash.com/photos/random?query=barbershop&client_id=#{ENV['UNSPLASH_ACCESS_KEY']}"
 
 # Clear old data
 Barbershop.destroy_all
@@ -19,7 +19,10 @@ User.destroy_all
 
   # Fetch a random barbershop image from Unsplash
   response = HTTParty.get(UNSPLASH_API_URL)
-  image_url = response.parsed_response.first['urls']['regular']
+  puts response.parsed_response.class
+  puts response.parsed_response
+  image_url = response.parsed_response['urls']['regular']
+
 
   # Each barber owns 1-2 barbershops
   rand(1..2).times do

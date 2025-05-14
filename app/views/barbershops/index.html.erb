@@ -5,7 +5,7 @@
 <% else %>
   <% @barbershops.each do |barbershop| %>
     <div class="shop-card">
-      <% if barbershop.photo.attached? %>
+      <% if barbershop.photo.present? %>
         <%= image_tag barbershop.photo, alt: barbershop.name, class: "shop-image" %>
       <% else %>
         <p>No photo available</p>
