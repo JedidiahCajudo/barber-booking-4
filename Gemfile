@@ -79,3 +79,4 @@ gem 'carrierwave'
 # Gemfile
 gem 'httparty'
 gem 'dotenv-rails'
+gem 'flatpickr'
