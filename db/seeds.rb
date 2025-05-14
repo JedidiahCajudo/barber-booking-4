@@ -32,7 +32,7 @@ User.destroy_all
       city: "New York",
       instagram: "https://instagram.com/#{Faker::Internet.username}",
       user: barber,
-      photo: image_url  # Adding a real barbershop image from Unsplash
+      remote_photo_url: image_url  # Adding a real barbershop image from Unsplash
     )
   end
 end
