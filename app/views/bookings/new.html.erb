@@ -1,2 +1,17 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Book an Appointment at <%= @barbershop.name %></h1>
+
+<%= form_with model: @booking, url: bookings_path do |f| %>
+  <%= hidden_field_tag :barbershop_id, @barbershop.id %>
+
+  <div>
+    <%= label_tag :service_id, "Choose a Service" %><br>
+    <%= select_tag :service_id, options_from_collection_for_select(@barbershop.services, :id, :name) %>
+  </div>
+
+  <div>
+    <%= label_tag :start_time, "Choose a Time" %><br>
+    <%= datetime_select :booking, :start_time %>
+  </div>
+
+  <%= f.submit "Confirm Booking" %>
+<% end %>
