@@ -371,8 +371,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
-  carrierwave (~> 2.0)
-  cloudinary (~> 1.15)
+  carrierwave
+  cloudinary (~> 1.16)
   debug
   devise (~> 4.9)
   dotenv-rails

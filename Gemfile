@@ -74,8 +74,8 @@ gem 'faker'
 gem 'sassc-rails'
 # Gemfile
 gem 'fog-aws'
-gem 'carrierwave', '~> 2.0'
-gem 'cloudinary', '~> 1.15'
+gem 'cloudinary', '~> 1.16'
+gem 'carrierwave'
 # Gemfile
 gem 'httparty'
 gem 'dotenv-rails'
