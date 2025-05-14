@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @barbershop = Barbershop.find(params[:barbershop_id])
     @booking = Booking.new
+    @services = @barbershop.services
   end
 
   def create
@@ -21,5 +22,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:service_id, :start_time)
   end
-
 end

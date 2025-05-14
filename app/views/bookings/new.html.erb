@@ -1,15 +1,17 @@
 <h1>Book an Appointment at <%= @barbershop.name %></h1>
 
-<%= form_with model: @booking, url: bookings_path(barbershop_id: @barbershop.id) do |form| %>
-  <div>
-    <%= form.label :service_id, "Choose a Service" %><br>
-    <%= form.collection_select :service_id, @barbershop.services, :id, :name %>
+<%= form_with model: @booking, url: barbershop_bookings_path(@barbershop), method: :post, local: true do |form| %>
+
+  <div class="form-group">
+    <%= form.label :service_id, "Select Service" %>
+    <%= form.collection_select :service_id, @barbershop.services, :id, :name, prompt: "Choose a service" %>
   </div>
 
-  <div>
-    <%= form.label :start_time, "Select Date & Time" %><br>
-    <%= form.datetime_select :start_time %>
+  <div class="form-group">
+    <%= form.label :start_time, "Select Time" %>
+    <%= form.datetime_local_field :start_time, step: 900, min: Time.now %>
   </div>
 
   <%= form.submit "Book Appointment" %>
+
 <% end %>
