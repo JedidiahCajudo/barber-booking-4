@@ -16,7 +16,7 @@
       <% if barbershop.instagram.present? %>
         <p>Instagram: <%= link_to barbershop.instagram, "https://instagram.com/#{barbershop.instagram}", target: "_blank" %></p>
       <% end %>
-      <%= link_to "View Details", barbershop_path(barbershop), class: "details-link" %>
+<%= link_to "View Details", barbershop_path(barbershop.id), class: "details-link" %>
     </div>
   <% end %>
 <% end %>

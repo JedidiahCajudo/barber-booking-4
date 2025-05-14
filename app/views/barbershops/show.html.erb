@@ -3,4 +3,4 @@
 <p><%= @barbershop.city %></p>
 <p><%= @barbershop.instagram %></p>
 
-<%= link_to 'Book an Appointment', new_booking_path(barbershop_id: @barbershop.id) %>
+<%= link_to 'Book an Appointment', new_barbershop_booking_path(barbershop_id: @barbershop.id) %>
