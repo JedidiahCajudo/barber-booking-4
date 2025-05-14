@@ -25,17 +25,14 @@
 
   <div class="shop-cards-container">
     <% @barbershops.each do |barbershop| %>
-      <div class="shop-card">
+      <%= link_to barbershop_path(barbershop.id), class: "shop-card" do %>
         <h3><%= barbershop.name %></h3>
         <p><%= barbershop.city %></p>
 
-    <p>
-      <%= barbershop.services.map { |service| "#{service.name}" }.join(', ') %>
-    </p>
-
-
-        <%= link_to 'Select this Barbershop', barbershop_path(barbershop.id), class: "details-link" %>
-      </div>
+        <p>
+          <%= barbershop.services.map { |service| "#{service.name}" }.join(', ') %>
+        </p>
+      <% end %>
     <% end %>
   </div>
 </section>
