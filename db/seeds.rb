@@ -21,7 +21,8 @@ User.destroy_all
   response = HTTParty.get(UNSPLASH_API_URL)
   puts response.parsed_response.class
   puts response.parsed_response
-  image_url = response.parsed_response.first['urls']['regular']
+  image_url = response.parsed_response['urls']['regular']
+
 
   # Each barber owns 1-2 barbershops
   rand(1..2).times do
