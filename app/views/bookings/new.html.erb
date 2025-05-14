@@ -1,17 +1,17 @@
-<h1>Book an Appointment at <%= @barbershop.name %></h1>
+<h1>Book a Service at <%= @barbershop.name %></h1>
 
-<%= form_with model: [@barbershop, @booking], local: true, data: { turbo: false } do |form| %>
-
-  <div class="form-group">
-    <%= form.label :service_id, "Select Service" %>
-    <%= form.collection_select :service_id, @barbershop.services, :id, :name, prompt: "Choose a service" %>
+<%= form_with(model: @booking, url: barbershop_bookings_path(@barbershop), method: :post) do |f| %>
+  <div>
+    <label>Choose Service</label>
+    <%= f.select :service_id, @services.collect { |s| [s.name, s.id] }, prompt: "Select a service" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :start_time, "Select Time" %>
-    <%= form.select :start_time, options_for_select(@time_options), { prompt: "Choose a time" } %>
+  <div>
+    <label>Choose Time</label>
+    <%= f.select :start_time, @time_options, prompt: "Select a time" %>
   </div>
 
-  <%= form.submit "Book Appointment" %>
+  <%= f.hidden_field :barbershop_id, value: @barbershop.id %>
 
+  <%= f.submit "Book Appointment" %>
 <% end %>

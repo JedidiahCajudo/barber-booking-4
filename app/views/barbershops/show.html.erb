@@ -1,6 +1,26 @@
-<h1><%= @barbershop.name %></h1>
-<p><%= @barbershop.address %></p>
-<p><%= @barbershop.city %></p>
-<p><%= @barbershop.instagram %></p>
+<h1>Welcome to <%= @barbershop.name %></h1>
 
-<%= link_to 'Book an Appointment', new_barbershop_booking_path(barbershop_id: @barbershop.id) %>
+<p>Services Offered:
+  <% if @barbershop.services.present? %>
+    <%= @barbershop.services.map(&:name).join(", ") %>
+  <% else %>
+    No services available.
+  <% end %>
+</p>
+
+<!-- Debugging Output -->
+<p><%= @barbershop.services.inspect %></p>  <!-- Add this line to see the value of services -->
+
+<%= form_with(url: barbershop_bookings_path(@barbershop), method: :post) do |f| %>
+  <div>
+    <label>Choose Service</label>
+    <%= f.select :service_id, @barbershop.services.pluck(:name, :id), prompt: "Select a service" %>
+  </div>
+
+  <div>
+    <label>Choose Time</label>
+    <%= f.select :start_time, @time_options, prompt: "Select a time" %>
+  </div>
+
+  <%= f.submit "Book Appointment" %>
+<% end %>
