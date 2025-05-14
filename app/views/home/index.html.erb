@@ -1,26 +1,37 @@
 <section class="hero">
   <div class="hero-content">
     <h2 class="hero-title">The #1 Salon App in Tokyo</h2>
-    <form class="hero-search">
-      <input type="text" name="service"   placeholder="Service"   />
-      <input type="text" name="location"  placeholder="Location"  />
-      <input type="date" name="date"      />
-      <input type="time" name="time"      />
-      <button type="submit" class="search-button">Search</button>
-    </form>
+<%= form_with url: barbershops_path, method: :get, local: true, class: "hero-search" do |f| %>
+  <%= f.select :service, options_for_select([
+    "Cut", "Color", "Perm", "Shave", "Eyebrows & Eyelashes"
+  ], params[:service]), include_blank: "Service" %>
+
+  <%= f.select :location, options_for_select([
+    "Chiyoda","Chūō","Minato","Shinjuku","Bunkyō","Taitō","Sumida","Kōtō",
+    "Shinagawa","Meguro","Ōta","Setagaya","Shibuya","Nakano","Suginami",
+    "Toshima","Kita","Arakawa","Itabashi","Nerima","Adachi","Katsushika","Edogawa"
+  ], params[:location]), include_blank: "Location" %>
+
+  <%= f.date_field :date, value: params[:date], placeholder: "Date" %>
+  <%= f.time_field :time, value: params[:time], placeholder: "Time" %>
+
+  <%= f.submit "Search", class: "search-button" %>
+<% end %>
   </div>
 </section>
 
 <section class="barbershops-list">
   <h2>Browse</h2>
 
-  <% @barbershops.each do |barbershop| %>
-    <div>
-      <h2><%= barbershop.name %></h2>
+  <div class="shop-cards-container">
+    <% @barbershops.each do |barbershop| %>
+      <div class="shop-card">
+        <h3><%= barbershop.name %></h3>
         <p><%= barbershop.address %></p>
         <p><%= barbershop.city %></p>
         <p><%= barbershop.instagram %></p>
-<%= link_to 'Select this Barbershop', barbershop_path(barbershop.id) %>
-    </div>
-  <% end %>
+        <%= link_to 'Select this Barbershop', barbershop_path(barbershop.id), class: "details-link" %>
+      </div>
+    <% end %>
+  </div>
 </section>

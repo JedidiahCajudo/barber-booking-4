@@ -1,19 +1,22 @@
-// app/assets/stylesheets/components/_shop.scss
 @import 'variables';
-
 
 .barbershops-list {
   margin-top: 3rem;
   text-align: center;
 
+  .shop-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; // Space out the cards evenly
+  }
+
   .shop-card {
-    display: inline-block;
     background-color: $light-text;
     border-radius: $border-radius;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem;
-    margin: 1rem;
-    width: calc(33% - 2rem); // For a 3-column layout
+    padding: 1rem;
+    margin: 0.5rem;
+    width: calc(20% - 1rem); // Smaller cards, 5 per row on half-sized window
     text-align: left;
     transition: transform 0.2s ease;
 
@@ -22,12 +25,13 @@
     }
 
     h3 {
-      font-size: 1.75rem;
+      font-size: 1.125rem; // Even smaller font size for the title
       color: $dark-text;
       margin-bottom: 0.5rem;
     }
 
     p {
+      font-size: 0.75rem; // Smaller font for descriptions
       color: $dark-text;
       margin: 0.25rem 0;
     }
@@ -38,10 +42,17 @@
       color: $primary-bg;
       font-weight: bold;
       text-decoration: none;
+      font-size: 0.75rem; // Smaller font for the link text
 
       &:hover {
         text-decoration: underline;
       }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .shop-card {
+      width: calc(20% - 1rem); // 5 per row on medium screens (e.g., half-window on a 13" MacBook)
     }
   }
 

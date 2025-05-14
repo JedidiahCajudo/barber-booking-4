@@ -30,10 +30,10 @@
       gap: 1rem;
       justify-content: center;
 
-
       input[type="text"],
       input[type="date"],
-      input[type="time"] {
+      input[type="time"],
+      select {
         flex: 1 1 150px;
         min-width: 120px;
         padding: $base-padding;
@@ -42,6 +42,10 @@
         background-color: $secondary-bg;  // Solid background color
         color: $form-text-color;  // New text color for form fields
         font-family: $font-family;
+
+        option {
+          padding: 10px;  // Add padding to options for better spacing
+        }
       }
 
       .search-button {
