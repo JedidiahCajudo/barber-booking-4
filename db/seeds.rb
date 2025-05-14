@@ -19,6 +19,8 @@ User.destroy_all
 
   # Fetch a random barbershop image from Unsplash
   response = HTTParty.get(UNSPLASH_API_URL)
+  puts response.parsed_response.class
+  puts response.parsed_response
   image_url = response.parsed_response.first['urls']['regular']
 
   # Each barber owns 1-2 barbershops
