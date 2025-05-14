@@ -9,8 +9,7 @@
 
   <div class="form-group">
     <%= form.label :start_time, "Select Time" %>
-    <!-- Changed datetime-local to a text input -->
-    <%= form.text_field :start_time, class: "flatpickr-input", step: 1800, min: Time.now %>
+    <%= form.select :start_time, options_for_select(@time_options), { prompt: "Choose a time" } %>
   </div>
 
   <%= form.submit "Book Appointment" %>

@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
     @barbershop = Barbershop.find(params[:barbershop_id])
     @booking = Booking.new
     @services = @barbershop.services
+    @time_options = time_options
   end
 
   def create
@@ -15,6 +16,17 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  # The time_options method should be placed above private methods
+  def time_options
+    times = []
+    current_time = Time.now.beginning_of_hour  # Start from the current hour, rounding up if necessary
+    24.times do
+      times << current_time.strftime("%H:%M")  # Add time as "HH:MM" format (24-hour format)
+      current_time += 30.minutes  # Increment by 30 minutes
+    end
+    times
   end
 
   private
