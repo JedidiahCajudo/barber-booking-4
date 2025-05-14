@@ -1,6 +1,6 @@
 <h1>Book an Appointment at <%= @barbershop.name %></h1>
 
-<%= form_with model: @booking, url: barbershop_bookings_path(@barbershop), method: :post, local: true do |form| %>
+<%= form_with model: [@barbershop, @booking], local: true, data: { turbo: false } do |form| %>
 
   <div class="form-group">
     <%= form.label :service_id, "Select Service" %>

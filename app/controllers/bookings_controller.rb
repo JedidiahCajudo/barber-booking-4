@@ -12,10 +12,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      Rails.logger.debug "Booking saved successfully with start_time: #{@booking.start_time}"  # Add this line for logging
+      Rails.logger.info "Booking created successfully: #{@booking.inspect}"
       redirect_to @barbershop, notice: "Booking confirmed!"
     else
-      Rails.logger.debug "Booking save failed: #{@booking.errors.full_messages}"  # Log errors if save fails
+      Rails.logger.error "Booking creation failed: #{@booking.errors.full_messages.join(', ')}"
       render :new, status: :unprocessable_entity
     end
   end
