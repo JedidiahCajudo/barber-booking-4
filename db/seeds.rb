@@ -6,7 +6,6 @@ UNSPLASH_API_URL = "https://api.unsplash.com/photos/random?query=barbershop&clie
 
 # Clear old data
 Barbershop.destroy_all
-User.destroy_all
 
 # Create 3 barbers (users with the role "barber")
 3.times do
