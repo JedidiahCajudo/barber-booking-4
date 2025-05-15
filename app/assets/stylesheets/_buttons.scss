@@ -1,56 +1,13 @@
-@import "variables";
+// _buttons.scss
 
-// Base button style – Matches input field look
+@import 'mixins';
+
+// Primary button
 .button {
-  padding: $base-padding;
-  font-size: 1rem;
-  font-family: $font-family;
-  font-weight: regular;
-  border-radius: $border-radius;
-  background-color: $primary-bg;
-  color: $light-text;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: darken($primary-bg, 10%);
-  }
-
-  &:active {
-    background-color: darken($primary-bg, 15%);
-  }
-
-  &:focus {
-    outline: none;
-  }
+  @include button($primary-bg, $light-text);
 }
 
-// Secondary button (white with black text) – if needed
+// Secondary button
 .button-secondary {
-  padding: $base-padding;
-  font-size: 1rem;
-  font-family: $font-family;
-  font-weight: regular;
-  border-radius: $border-radius;
-  background-color: $secondary-bg;
-  border: 2px solid $gray-border;
-  color: $dark-text;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-  color: $form-text-color;
-
-
-  &:hover {
-    background-color: darken($secondary-bg, 5%);  // Lighter darkening to avoid it being too dark
-  }
-
-  &:active {
-    background-color: darken($secondary-bg, 10%);  // Slightly darker than hover, but not too extreme
-  }
-
-  &:focus {
-    outline: none;
-  }
+  @include button($secondary-color, $dark-color);
 }

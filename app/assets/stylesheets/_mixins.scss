@@ -1,0 +1,44 @@
+// _mixins.scss
+
+// Button Mixin
+@mixin button($bg-color, $text-color) {
+  padding: $base-spacing;
+  font-size: 1rem;
+  font-family: $font-family;
+  font-weight: regular;
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  color: $text-color;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+
+  &:active {
+    background-color: darken($bg-color, 15%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Input Mixin
+@mixin input($bg-color, $border-color, $text-color) {
+  background-color: $bg-color;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  color: $text-color;
+  padding: $base-spacing;
+  font-family: $font-family;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $primary-bg;
+    outline: none;
+    box-shadow: 0 0 5px rgba($primary-bg, 0.5);
+  }
+}

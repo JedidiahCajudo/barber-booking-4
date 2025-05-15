@@ -1,5 +1,7 @@
-@import "variables";
-@import "buttons";
+// _navbar.scss
+
+@import 'variables';
+@import 'mixins';
 
 .navbar {
   position: absolute;
@@ -8,7 +10,6 @@
   background-color: transparent !important;
   padding: 1.5rem 2rem;
   z-index: 10;
-
 
   .navbar-container {
     display: flex;
@@ -20,12 +21,12 @@
     font-family: $font-family;
     font-size: 1.5rem;
     text-decoration: none;
-    color: $dark-text; // Set the brand name color
+    color: $dark-text;
   }
 
   .navbar-links {
     a, .sign-out-btn {
-      @extend .button-secondary !optional; // Apply unified button style
+      @extend .button-secondary;
     }
   }
 }

@@ -1,4 +1,6 @@
-@import "variables";
+// _home.scss
+
+@import 'variables';
 
 .hero {
   display: flex;
@@ -6,63 +8,43 @@
   align-items: center;
   padding: 4rem 2rem;
   min-height: 100vh;
-  z-index: 1;
 
   .hero-content {
     text-align: center;
     max-width: 800px;
     width: 100%;
+  }
 
-    .hero-title {
-      font-family: $font-family;
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
+  .hero-title {
+    font-family: $font-family;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .hero-search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background-color: white;
+    border-radius: $border-radius;
+    padding: 2rem;
+    box-shadow: $box-shadow;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    input[type="text"], input[type="date"], input[type="time"], select {
+      @include input($light-text, $gray-border, $dark-text);
     }
 
-    .hero-search {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-
-      input[type="text"],
-      input[type="date"],
-      input[type="time"],
-      select {
-        flex: 1 1 150px;
-        min-width: 120px;
-        padding: $base-padding;
-        border: 2px solid $gray-border;
-        border-radius: $border-radius;
-        background-color: $secondary-bg;  // Solid background color
-        color: $form-text-color;  // New text color for form fields
-        font-family: $font-family;
-
-        option {
-          padding: 10px;  // Add padding to options for better spacing
-        }
-      }
-
-      .search-button {
-        @extend .button !optional; // Inherit button styles
-        padding: 0.75rem 2rem; // Adjust size to make it more oval
-        background-color: $primary-bg;
-        color: $light-text;
-        border: none;
-
-        &:focus {
-          outline: none;
-        }
-
-        &:hover {
-          background-color: darken($primary-bg, 10%);
-        }
-
-        &:active {
-          background-color: darken($primary-bg, 15%);
-        }
-      }
+    .search-button {
+      @extend .button;
+      background-color: $primary-bg;
+      padding: 0.75rem 2rem;
+      border-radius: $border-radius;
+      cursor: pointer;
     }
   }
 }

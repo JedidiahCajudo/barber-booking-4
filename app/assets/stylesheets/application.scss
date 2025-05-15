@@ -1,10 +1,12 @@
+// app.scss
+
 @import 'variables';
-@import 'navbar';
+@import 'mixins';
 @import 'base';
-@import 'layout';
-@import 'components';
-@import 'responsive';
-@import 'home';
 @import 'buttons';
+@import 'navbar';
+@import 'layout';
 @import 'form';
 @import 'shop';
+@import 'responsive';
+@import 'home';

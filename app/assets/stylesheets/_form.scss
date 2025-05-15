@@ -1,65 +1,41 @@
-// app/assets/stylesheets/components/_shop.scss
-@import 'variables';
+// _form.scss
 
-.barbershops-list {
-  margin-top: 3rem;
-  text-align: center;
+@import 'mixins';
 
-  .shop-card {
-    display: inline-block;
-    background-color: $light-text;
-    border-radius: $border-radius;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem;
-    margin: 1rem;
-    width: calc(33% - 2rem); // 3-column layout for larger screens
-    text-align: left;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    height: 100%; // Ensure cards fill available height
-    overflow: hidden; // Prevent any content from overflowing the card
+// Form container styling
+.form-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    }
+// Input fields
+.field {
+  margin-bottom: 1rem;
 
-    // Image Styling (if you want to add a placeholder or actual image)
-    .shop-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover; // Ensures the image fills the space without distorting
-      border-radius: $border-radius;
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: 1.75rem;
-      color: $dark-text;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      color: $dark-text;
-      margin: 0.25rem 0;
-    }
-
-    .details-link {
-      display: inline-block;
-      margin-top: 1rem;
-      color: $primary-bg;
-      font-weight: bold;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  input[type="email"],
+  input[type="password"] {
+    @include input($secondary-bg, $gray-border, $form-text-color);
   }
 
-  // Responsive layout for smaller screens
-  @media (max-width: 768px) {
-    .shop-card {
-      width: 100%; // Stack to 1 column on small screens
-    }
+  label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: $dark-text;
+  }
+}
+
+// Action buttons
+.actions {
+  margin-top: 1.5rem;
+
+  input[type="submit"] {
+    @extend .button;
+    width: 100%;
+    font-weight: bold;
   }
 }

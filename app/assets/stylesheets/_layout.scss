@@ -1,14 +1,14 @@
-@import 'variables'; // Ensure you're importing variables
+// _layout.scss
 
-// Container styling for consistent width and centering
+@import 'variables';
+
 .container {
   width: 80%;
   margin: 0 auto;
 }
 
-// Header styling
 .header {
-  background-color: $primary-color;   // Set header background color
+  background-color: $primary-color;
   padding: 20px;
   color: white;
   text-align: center;

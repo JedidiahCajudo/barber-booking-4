@@ -1,4 +1,5 @@
 // _responsive.scss
+
 @media (max-width: 768px) {
   .container {
     width: 95%;
@@ -6,5 +7,12 @@
 
   .header {
     padding: 10px;
+  }
+
+  .barbershops-list {
+    .shop-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
 }
