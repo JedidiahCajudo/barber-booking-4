@@ -1,7 +1,5 @@
 @import 'variables';
 
-
-// shop
 .barbershops-list {
   margin-top: 3rem;
   padding: 0 1rem;
@@ -27,15 +25,15 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin: 0 10px;
-    width: 300px;
+    width: 300px; /* Static width for larger screens */
   }
 
   .shop-card {
     display: block;
     width: 100%;
     text-align: left;
-    height: 400px; /* Fixed height for the card */
-    overflow: hidden; /* Hide any content that overflows */
+    height: 200px; /* Static height for larger screens */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,15 +41,14 @@
 
   .shop-image {
     width: 100%;
-    height: 200px;
+    height: 120px; /* Static image height for larger screens */
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem;
   }
 
   h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem; /* Default size for larger screens */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -62,7 +59,8 @@
     margin-bottom: 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;  /* Prevents text from wrapping */
+    white-space: nowrap;
+    font-size: 0.875rem; /* Smaller font for city & services */
   }
 
   .details-link {
@@ -77,5 +75,51 @@
     color: #007bff;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  /* Mobile view */
+  @media (max-width: 768px) {
+    .swiper-slide {
+      width: 200px; /* Smaller cards on mobile */
+    }
+
+    .shop-card {
+      height: 180px; /* Smaller height for mobile cards */
+    }
+
+    .shop-image {
+      height: 100px; /* Smaller image height on mobile */
+    }
+
+    h3 {
+      font-size: 1.25rem; /* Smaller text on mobile */
+    }
+
+    p {
+      font-size: 0.75rem; /* Smaller text for city & services */
+    }
+  }
+
+  /* Very small devices */
+  @media (max-width: 480px) {
+    .swiper-slide {
+      width: 150px; /* Even smaller cards on very small screens */
+    }
+
+    .shop-card {
+      height: 160px; /* Even smaller height for tiny screens */
+    }
+
+    .shop-image {
+      height: 80px; /* Tiny image height */
+    }
+
+    h3 {
+      font-size: 1rem; /* Very small text for small screens */
+    }
+
+    p {
+      font-size: 0.7rem; /* Even smaller city & services text */
+    }
   }
 }

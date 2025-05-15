@@ -3,11 +3,12 @@
 @import 'variables';
 @import 'mixins';
 
-// _home.scss
+
+//hero
 
 .hero {
-  display: block; // Simplify flex layout
-  padding: 3rem 2rem;
+  display: block;
+  padding: 5rem 2rem; /* Adjusted padding to push search form down */
   text-align: center;
 }
 
@@ -19,28 +20,42 @@
 
 .hero-search {
   background-color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: $border-radius;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   max-width: 500px;
   width: 100%;
+  margin-top: 1rem; /* Adds a little space between title and search */
+  margin-bottom: 3rem; /* Adjust space below */
+}
 
-  input[type="text"], input[type="date"], input[type="time"], select {
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.hero-search input[type="text"],
+.hero-search input[type="date"],
+.hero-search input[type="time"],
+.hero-search select {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+}
+
+.hero-search .search-button {
+  background-color: $dark-color;  // Use darker background from variables
+  color: $light-text;             // Use light text color
+  padding: 0.75rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  border: none;                   // No border as you requested
+
+  &:hover {
+    background-color: darken($dark-color, 10%);  // Darken on hover
   }
 
-  .search-button {
-    background-color: #007bff;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
+  &:focus {
+    outline: 3px solid $primary-bg;  // Focus outline with primary color for accessibility
   }
 }
