@@ -17,7 +17,11 @@ body {
   font-size: $font-size-base;
   background-color: $secondary-bg;
   color: $dark-text;
+  background-image: image-url('background-2.jpeg');
+  background-size: cover;
+  background-position: center;
 }
+
 
 // Link styling
 a {

@@ -1,9 +1,10 @@
-// app.scss
+//app
 
 @import 'variables';
-@import 'mixins';
-@import 'base';
+@import 'mixins';    // Mixins are loaded here
 @import 'buttons';
+@import 'auth';      // Now auth can use the button mixin
+@import 'base';
 @import 'navbar';
 @import 'layout';
 @import 'form';
