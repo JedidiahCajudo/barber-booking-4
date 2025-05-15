@@ -11,11 +11,17 @@
 
 // Body styling
 body {
-  font-family: $font-family;           // Global font family
-  font-size: $font-size-base;          // Base font size from variables
-  background-color: $secondary-bg;    // Background color from variable
-  color: $dark-text;                   // Default text color from variable
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-image: image-url('background-2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;  // make sure it covers full viewport height
+  color: $dark-text;  // keep text color
+  background-color: $secondary-bg; // fallback color in case image fails
 }
+
 
 // Link styling
 a {
