@@ -23,16 +23,19 @@
 <section class="barbershops-list">
   <h2>Browse</h2>
 
-  <div class="shop-cards-container">
-    <% @barbershops.each do |barbershop| %>
-      <%= link_to barbershop_path(barbershop.id), class: "shop-card" do %>
-        <h3><%= barbershop.name %></h3>
-        <p><%= barbershop.city %></p>
-
-        <p>
-          <%= barbershop.services.map { |service| "#{service.name}" }.join(', ') %>
-        </p>
+  <div class="swiper-container shop-cards-container" data-controller="swiper" data-swiper-target="container">
+    <div class="swiper-wrapper">
+      <% @barbershops.each do |barbershop| %>
+        <div class="swiper-slide">
+          <%= link_to barbershop_path(barbershop.id), class: "shop-card" do %>
+            <h3><%= barbershop.name %></h3>
+            <p><%= barbershop.city %></p>
+            <p><%= barbershop.services.map(&:name).join(', ') %></p>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 </section>
