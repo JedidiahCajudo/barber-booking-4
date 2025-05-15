@@ -23,7 +23,7 @@
 <section class="barbershops-list">
   <h2>Browse</h2>
 
-  <div class="swiper-container shop-cards-container" data-controller="swiper">
+  <div class="swiper-container shop-cards-container" data-controller="swiper" data-swiper-target="container">
     <div class="swiper-wrapper">
       <% @barbershops.each do |barbershop| %>
         <div class="swiper-slide">
@@ -35,8 +35,6 @@
         </div>
       <% end %>
     </div>
-
-    <!-- Navigation buttons -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
