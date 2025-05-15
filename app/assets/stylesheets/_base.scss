@@ -17,9 +17,11 @@ body {
   font-size: $font-size-base;
   background-color: $secondary-bg;
   color: $dark-text;
-  background-image: image-url('background-2.jpeg');
-  background-size: cover;
-  background-position: center;
+  background-image: url('background-2.jpeg'); /* Use the correct path */
+  background-size: cover; /* Cover the whole background */
+  background-position: center center; /* Center the background */
+  background-repeat: no-repeat; /* Prevent repeat */
+  height: 100vh; /* Ensure the body takes full viewport height */
 }
 
 
