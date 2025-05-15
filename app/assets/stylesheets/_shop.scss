@@ -25,8 +25,11 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin: 0 10px;
-    width: 300px; /* Static width for larger screens */
+    width: 16rem;  /* Base size (adjust for larger screens) */
+    max-width: 240px;
+    min-width: 12rem;  /* Prevents it from shrinking too much on smaller screens */
   }
+
 
   .shop-card {
     display: block;
