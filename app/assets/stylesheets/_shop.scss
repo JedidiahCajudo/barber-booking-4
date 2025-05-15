@@ -3,10 +3,10 @@
 .barbershops-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  // centers cards nicely with some space
+  justify-content: center;
 
   .shop-card {
-    flex: 1 1 calc(25% - 2rem);  // grow/shrink with 4 cards per row on big screens
+    flex: 1 1 calc(25% - 2rem);  // 4 cards per row
     max-width: calc(25% - 2rem);
     background-color: $light-text;
     border-radius: $border-radius;
@@ -28,13 +28,13 @@
       margin-bottom: 0.5rem;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;  // trims long shop names with "..."
+      text-overflow: ellipsis;
     }
 
     p {
       color: $dark-text;
       margin: 0.25rem 0;
-      font-size: 1rem;           // consistent size for all text
+      font-size: 1rem;
 
       strong {
         font-weight: bold;
@@ -62,9 +62,9 @@
 
   @media (max-width: 768px) {
     .shop-card {
-      flex: 1 1 100%;  // single column on small screens
+      flex: 1 1 100%;
       max-width: 100%;
-      height: auto;    // let height adjust naturally on small screens
+      height: auto;
     }
   }
 }
@@ -73,6 +73,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  z-index: 10;
 }
 
 .swiper-wrapper {
@@ -83,11 +84,17 @@
 
 .swiper-slide {
   flex-shrink: 0;
-  width: 100%;
+  width: 100%;  // Ensures slides take full width of swiper container
   box-sizing: border-box;
 }
 
-/* Add these styles for swiper navigation buttons */
+.swiper-slide .shop-card {
+  flex: none;
+  max-width: none;
+  width: 100%;
+}
+
+/* Swiper navigation buttons */
 .swiper-button-next,
 .swiper-button-prev {
   position: absolute;

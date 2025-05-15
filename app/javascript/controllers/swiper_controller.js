@@ -4,8 +4,6 @@ export default class extends Controller {
   static targets = ["container"]
 
   connect() {
-    console.log("Swiper controller connected, element:", this.element)
-
     this.swiper = new window.Swiper(this.containerTarget, {
       slidesPerView: 4,
       spaceBetween: 20,
@@ -13,15 +11,16 @@ export default class extends Controller {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      loop: false,
-      allowTouchMove: true,
-      breakpoints: {
-        768: { slidesPerView: 1 },
-        1024: { slidesPerView: 2 },
-        1440: { slidesPerView: 4 }
-      }
-    })
-
-    console.log("Swiper instance:", this.swiper)
+      loop: true,
+      freeMode: true, // Makes the scrolling feel like free scroll
+      allowTouchMove: true,  // Touch move enabled
+      touchMoveStopPropagation: true,  // Prevent touch events from stopping propagation
+      touchRatio: 1,  // Adjust swipe sensitivity (try 1 or 0.5)
+      grabCursor: false, // Disable grab cursor for swipe interaction
+      mousewheel: true,  // Enable mousewheel scroll
+      centeredSlides: true,  // Keep the slides centered
+      speed: 800,
+    });
+    console.log('Swiper initialized');
   }
 }
