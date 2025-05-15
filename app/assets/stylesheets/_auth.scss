@@ -1,3 +1,7 @@
+//auth
+
+@import 'variables';
+
 .form-container {
   max-width: 400px;
   margin: 4rem auto;
@@ -96,7 +100,7 @@
   margin-top: 1.5rem;
 
   input[type="submit"] {
-    @extend .button;
+    @include button($primary-bg, $light-text);
     width: 100%;
     font-weight: bold;
   }

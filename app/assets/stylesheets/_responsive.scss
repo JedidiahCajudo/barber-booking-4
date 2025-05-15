@@ -1,5 +1,4 @@
-// _responsive.scss
-
+// Responsive layout adjustments
 @media (max-width: 768px) {
   .container {
     width: 95%;
@@ -14,5 +13,18 @@
       flex: 1 1 100%;
       max-width: 100%;
     }
+  }
+}
+
+// Responsive padding adjustments
+@media (max-width: 768px) {
+  body {
+    padding: 0.8rem; // Adjust padding for smaller screens
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.6rem; // Even smaller screens
   }
 }
