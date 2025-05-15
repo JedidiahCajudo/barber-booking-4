@@ -1,40 +1,43 @@
+<!-- _home.html.erb -->
+
 <section class="hero">
-  <div class="hero-content">
-    <h2 class="hero-title">The #1 Salon App in Tokyo</h2>
-    <%= form_with url: barbershops_path, method: :get, local: true, class: "hero-search" do |f| %>
-      <%= f.select :service, options_for_select([
-        "Cut", "Color", "Perm", "Shave", "Eyebrows & Eyelashes"
-      ], params[:service]), include_blank: "Service" %>
+  <h2 class="hero-title">The #1 Salon App in Tokyo</h2>
+  <%= form_with url: barbershops_path, method: :get, local: true, class: "hero-search" do |f| %>
+    <%= f.select :service, options_for_select([
+      "Cut", "Color", "Perm", "Shave", "Eyebrows & Eyelashes"
+    ], params[:service]), include_blank: "Service" %>
 
-      <%= f.select :location, options_for_select([
-        "Chiyoda","Chūō","Minato","Shinjuku","Bunkyō","Taitō","Sumida","Kōtō",
-        "Shinagawa","Meguro","Ōta","Setagaya","Shibuya","Nakano","Suginami",
-        "Toshima","Kita","Arakawa","Itabashi","Nerima","Adachi","Katsushika","Edogawa"
-      ], params[:location]), include_blank: "Location" %>
+    <%= f.select :location, options_for_select([
+      "Chiyoda","Chūō","Minato","Shinjuku","Bunkyō","Taitō","Sumida","Kōtō",
+      "Shinagawa","Meguro","Ōta","Setagaya","Shibuya","Nakano","Suginami",
+      "Toshima","Kita","Arakawa","Itabashi","Nerima","Adachi","Katsushika","Edogawa"
+    ], params[:location]), include_blank: "Location" %>
 
-      <%= f.date_field :date, value: params[:date], placeholder: "Date" %>
-      <%= f.time_field :time, value: params[:time], placeholder: "Time" %>
+    <%= f.date_field :date, value: params[:date], placeholder: "Date" %>
+    <%= f.time_field :time, value: params[:time], placeholder: "Time" %>
 
-      <%= f.submit "Search", class: "search-button" %>
-    <% end %>
-  </div>
+    <%= f.submit "Search", class: "search-button" %>
+  <% end %>
 </section>
 
 <section class="barbershops-list">
   <h2>Browse</h2>
 
-  <div class="swiper-container shop-cards-container" data-controller="swiper" data-swiper-target="container">
+  <!-- Swiper Container for Carousel -->
+  <div class="swiper-container shop-cards-container">
     <div class="swiper-wrapper">
       <% @barbershops.each do |barbershop| %>
         <div class="swiper-slide">
-          <%= link_to barbershop_path(barbershop.id), class: "shop-card" do %>
+          <div class="shop-card">
             <h3><%= barbershop.name %></h3>
             <p><%= barbershop.city %></p>
             <p><%= barbershop.services.map(&:name).join(', ') %></p>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>
+
+    <!-- Swiper Navigation -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>

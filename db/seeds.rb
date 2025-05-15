@@ -10,15 +10,14 @@ user = User.find_or_create_by(email: 'barber@example.com') do |u|
   u.role = 'barber'
 end
 
-
 # Create some barbershops with basic information
 10.times do
   barbershop = Barbershop.create!(
     name: "#{Faker::Company.name} Barbershop",
     address: Faker::Address.street_address,
-    city: ["Chiyoda","Chūō","Minato","Shinjuku","Bunkyō","Taitō","Sumida","Kōtō",
-    "Shinagawa","Meguro","Ōta","Setagaya","Shibuya","Nakano","Suginami",
-    "Toshima","Kita","Arakawa","Itabashi","Nerima","Adachi","Katsushika","Edogawa"].sample,
+    city: ["Chiyoda", "Chūō", "Minato", "Shinjuku", "Bunkyō", "Taitō", "Sumida", "Kōtō",
+           "Shinagawa", "Meguro", "Ōta", "Setagaya", "Shibuya", "Nakano", "Suginami",
+           "Toshima", "Kita", "Arakawa", "Itabashi", "Nerima", "Adachi", "Katsushika", "Edogawa"].sample,
     instagram: "https://instagram.com/#{Faker::Internet.username}",
     user: user
   )
@@ -36,5 +35,4 @@ end
   services.sample(rand(2..4)).each do |service|
     barbershop.services.create!(service)
   end
-
 end

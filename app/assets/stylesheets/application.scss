@@ -1,10 +1,13 @@
+//app
+
 @import 'variables';
-@import 'navbar';
-@import 'base';
-@import 'layout';
-@import 'components';
-@import 'responsive';
-@import 'home';
+@import 'mixins';    // Mixins are loaded here
 @import 'buttons';
+@import 'auth';      // Now auth can use the button mixin
+@import 'base';
+@import 'navbar';
+@import 'layout';
 @import 'form';
 @import 'shop';
+@import 'responsive';
+@import 'home';
