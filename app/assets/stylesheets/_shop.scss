@@ -1,17 +1,20 @@
 @import 'variables';
 
 .barbershops-list {
-  margin-top: 3rem;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  // centers cards nicely with some space
 
   .shop-card {
-    display: inline-block;
+    flex: 1 1 calc(25% - 2rem);  // grow/shrink with 4 cards per row on big screens
+    max-width: calc(25% - 2rem);
     background-color: $light-text;
     border-radius: $border-radius;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
     margin: 1rem;
-    width: calc(25% - 2rem); // Adjusting to show 4 cards per row (on larger screens)
+    height: 350px;               // fixed height for uniformity
+    overflow: hidden;
     text-align: left;
     transition: transform 0.2s ease;
 
@@ -23,11 +26,15 @@
       font-size: 1.5rem;
       color: $dark-text;
       margin-bottom: 0.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;  // trims long shop names with "..."
     }
 
     p {
       color: $dark-text;
       margin: 0.25rem 0;
+      font-size: 1rem;           // consistent size for all text
 
       strong {
         font-weight: bold;
@@ -55,7 +62,10 @@
 
   @media (max-width: 768px) {
     .shop-card {
-      width: 100%; // Stack to 1 column on small screens
+      flex: 1 1 100%;  // single column on small screens
+      max-width: 100%;
+      height: auto;    // let height adjust naturally on small screens
     }
   }
 }
+
