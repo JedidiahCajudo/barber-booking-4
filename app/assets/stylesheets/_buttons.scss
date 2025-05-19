@@ -1,8 +1,6 @@
-// _buttons.scss
-
 @import 'variables';
 
-// Directly define the button mixin here to test if it's working
+// Button Mixin
 @mixin button($bg-color, $text-color) {
   padding: $base-spacing;
   font-size: 1rem;
@@ -28,10 +26,23 @@
   }
 }
 
-.button {
+// Default button styles
+.button,
+input.button {
   @include button($primary-bg, $light-text);
 }
 
+// Make sure buttons inside navbar-links keep the primary style, overriding any gray fallback
+.navbar .navbar-links .button {
+  @include button($primary-bg, $light-text);
+}
+
+// Logout form buttons styled as primary buttons
+.logout-form input.button {
+  @include button($primary-bg, $light-text);
+}
+
+// Secondary buttons use secondary colors
 .button-secondary {
   @include button($secondary-color, $dark-color);
 }
