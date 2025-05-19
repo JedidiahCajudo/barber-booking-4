@@ -1,48 +1,13 @@
 @import 'variables';
+@import 'mixins';
 
-// Button Mixin
-@mixin button($bg-color, $text-color) {
-  padding: $base-spacing;
-  font-size: 1rem;
-  font-family: $font-family;
-  font-weight: regular;
-  border-radius: $border-radius;
-  background-color: $bg-color;
-  color: $text-color;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: darken($bg-color, 10%);
-  }
-
-  &:active {
-    background-color: darken($bg-color, 15%);
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-// Default button styles
+// Primary button style using the button mixin
 .button,
 input.button {
   @include button($primary-bg, $light-text);
 }
 
-// Make sure buttons inside navbar-links keep the primary style, overriding any gray fallback
-.navbar .navbar-links .button {
-  @include button($primary-bg, $light-text);
-}
-
-// Logout form buttons styled as primary buttons
-.logout-form input.button {
-  @include button($primary-bg, $light-text);
-}
-
-// Secondary buttons use secondary colors
+// Secondary button style
 .button-secondary {
   @include button($secondary-color, $dark-color);
 }
