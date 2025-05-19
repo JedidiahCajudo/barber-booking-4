@@ -1,9 +1,20 @@
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+
+
 <h1>Book a Service at <%= @barbershop.name %></h1>
 
-<%= form_with(model: @booking, url: barbershop_bookings_path(@barbershop), method: :post) do |f| %>
+<%= form_with(model: @booking, url: barbershop_bookings_path(@barbershop), method: :post, local: true) do |f| %>
+
   <div>
     <label>Choose Service</label>
     <%= f.select :service_id, @services.collect { |s| [s.name, s.id] }, prompt: "Select a service" %>
+  </div>
+
+  <div>
+    <label>Choose Date</label>
+    <%= f.date_field :date, value: params[:date] || Date.today %>
   </div>
 
   <div>

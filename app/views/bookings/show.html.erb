@@ -1,0 +1,10 @@
+<h1>Booking Confirmation</h1>
+
+<p>
+  <strong>Barbershop:</strong> <%= @booking.barbershop.name %><br>
+  <strong>Service:</strong> <%= @booking.service.name %><br>
+  <strong>Date and Time:</strong> <%= @booking.start_time.strftime("%B %d, %Y at %I:%M %p") %><br>
+  <strong>Booked by:</strong> <%= @booking.user.email %>
+</p>
+
+<%= link_to "Back to Barbershops", barbershops_path %>

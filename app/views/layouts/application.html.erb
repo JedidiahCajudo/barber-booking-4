@@ -12,14 +12,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-
   <body>
     <%= render partial: 'shared/navbar' %>
+
+    <% flash.each do |type, msg| %>
+      <div class="flash flash-<%= type %>"><%= msg %></div>
+    <% end %>
+
     <%= yield %>
   </body>
-
-  <% flash.each do |type, msg| %>
-    <div class="flash flash-<%= type %>"><%= msg %></div>
-  <% end %>
-
 </html>

@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
+  resources :bookings, only: [:show]
+
   root to: 'home#index'
 end
