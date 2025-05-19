@@ -1,49 +1,53 @@
 class BookingsController < ApplicationController
   def new
-    # Fetch the barbershop where the booking will be made
     @barbershop = Barbershop.find(params[:barbershop_id])
-
-    # Initialize a new booking and fetch the services for the barbershop
     @booking = Booking.new
     @services = @barbershop.services
-    @time_options = time_options  # Provide available time slots for the booking
+    @time_options = time_options
   end
 
   def create
-    # Find the barbershop where the booking is being made
+      Rails.logger.info "BookingsController#create hit"
     @barbershop = Barbershop.find(params[:barbershop_id])
 
-    # Create a new booking associated with the selected barbershop
-    @booking = @barbershop.bookings.new(booking_params)
+    date = booking_params[:date]  # "YYYY-MM-DD" string
+    time = booking_params[:start_time]  # "HH:MM" string
 
-    # Assign the current user as the one making the booking
+    if date.present? && time.present?
+      start_time = DateTime.parse("#{date} #{time}")
+    else
+      start_time = nil
+    end
+
+    @booking = @barbershop.bookings.new(service_id: booking_params[:service_id], start_time: start_time)
     @booking.user = current_user
 
-    # Attempt to save the booking
     if @booking.save
       Rails.logger.info "Booking created successfully: #{@booking.inspect}"
-      redirect_to @barbershop, notice: "Booking confirmed!"
+      redirect_to booking_path(@booking), notice: "Booking confirmed!"
     else
       Rails.logger.error "Booking creation failed: #{@booking.errors.full_messages.join(', ')}"
       render :new, status: :unprocessable_entity
     end
   end
 
-  # Provide available time slots (30-minute increments for 24 hours)
   def time_options
     times = []
-    current_time = Time.now.beginning_of_hour  # Start from the current hour
+    current_time = Time.now.beginning_of_hour
     24.times do
-      times << current_time.strftime("%H:%M")  # Format time as "HH:MM" (24-hour format)
-      current_time += 30.minutes  # Increment time by 30 minutes
+      times << current_time.strftime("%H:%M")
+      current_time += 30.minutes
     end
     times
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   private
 
-  # Strong parameters for booking creation
   def booking_params
-    params.require(:booking).permit(:service_id, :start_time)
+    params.require(:booking).permit(:service_id, :start_time, :date)
   end
 end

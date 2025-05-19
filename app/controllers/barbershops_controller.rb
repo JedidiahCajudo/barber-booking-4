@@ -28,7 +28,9 @@ class BarbershopsController < ApplicationController
 
   def show
     @barbershop = Barbershop.find(params[:id])
-    @services = @barbershop.services  # This is fine if you need to load the services separately
+    @services = @barbershop.services
+    @time_options = @barbershop.available_time_slots(Date.today)
   end
+
 
 end

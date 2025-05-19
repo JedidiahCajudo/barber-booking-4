@@ -1,37 +1,13 @@
-// _buttons.scss
-
 @import 'variables';
+@import 'mixins';
 
-// Directly define the button mixin here to test if it's working
-@mixin button($bg-color, $text-color) {
-  padding: $base-spacing;
-  font-size: 1rem;
-  font-family: $font-family;
-  font-weight: regular;
-  border-radius: $border-radius;
-  background-color: $bg-color;
-  color: $text-color;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: darken($bg-color, 10%);
-  }
-
-  &:active {
-    background-color: darken($bg-color, 15%);
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.button {
+// Primary button style using the button mixin
+.button,
+input.button {
   @include button($primary-bg, $light-text);
 }
 
+// Secondary button style
 .button-secondary {
   @include button($secondary-color, $dark-color);
 }

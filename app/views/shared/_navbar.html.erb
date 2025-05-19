@@ -5,10 +5,10 @@
     </div>
     <div class="navbar-links">
       <% if user_signed_in? %>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "sign-out-btn" %>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, form_class: "logout-form", class: "button" %>
       <% else %>
         <% unless current_page? new_user_session_path %>
-          <%= link_to "Sign In", new_user_session_path %>
+          <%= link_to "Log In", new_user_session_path %>
         <% end %>
         <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
